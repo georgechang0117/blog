@@ -65,11 +65,11 @@ class ArticlesController < ApplicationController
   end
 
   def feed
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
   end
 
   def manage
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
   end
 
   private
