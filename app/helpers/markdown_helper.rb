@@ -1,3 +1,5 @@
+require 'redcarpet'
+require 'redcarpet/render_strip'
 module MarkdownHelper
   class HTMLWithPygments < Redcarpet::Render::HTML
     def block_code(code, language)
@@ -22,5 +24,10 @@ module MarkdownHelper
       superscript: true
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
+  end
+
+  def stripdown(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
+    markdown.render(text)
   end
 end
