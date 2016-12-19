@@ -1,41 +1,75 @@
-<div class="main">
+<header class="intro">
+  <div class="header-content">
+    <div class="header-content-inner">
+      <h1><span>&#060;</span>George <span>/&#062;</span></h1>
+      <p>#Programmer #Rails #Taiwanese</p>
+    </div>
+
+  </div>
+  <div class="header-content-bottom">
+    <a href="#recent">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-angle-down fa-stack-1x fa-inverse" aria-hidden="true"></i>
+      </span>
+    </a>
+  </div>
+</header>
+<section id="recent">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-      <% @articles.each do |article| %>
-        <div class="post">
-          <div class="post-title">
-            <%= link_to article.title, article_path(article) %>
-          </div>
-          <div class="post-info">
-            <p><%= getCustomStrftime(article.created_at) %></p>
-          </div>
-          <div class="post-text">
-            
-          </div>
-        </div>
-      <% end %>
-      </div>
+    <h1>Recent Posts</h1>
+    <div class="row">  
+    <% @articles.each do |article| %>
       <div class="col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
-              <div class="center-block">
-                <h3 class="centered-text">About George</h3>
-                <a href="<%= about_path %>"><img class="img-circle img-centerable avatar-img" src="https://c1.staticflickr.com/9/8708/17446570459_5f95600368_m.jpg" width="200" height="200" alt="avatar"></a>
-                <p class="blocktext">I am a programmer who dreams and pursues excellence.</p>
-                <ul class="social-network">
-                  <li><a class="social-icon" href="https://github.com/georgechang0117" target="_blank"><i class="fa fa-github"></i></a></li>
-                  <li><a class="social-icon" href="https://tw.linkedin.com/in/georgechang0117" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                  <li><a class="social-icon" href="https://www.instagram.com/georgechang.ig" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                  <li><a class="social-icon" data-container="body" data-toggle="popover" data-placement="top" data-content="georgechang0117(at)gmail(dot)com"><i class="fa fa-envelope"></i></a></li>
-                </ul>
-              </div>
+        <a href="<%= article_path(article) %>" class="post-link">
+          <div class="post">
+            <h3 class="post-title">
+              <%= article.title %>
+            </h3>
+            <div class="post-info">
+              <p><%= getCustomStrftime(article.created_at) %></p>
+            </div>
+            <div class="post-text">
+              <%= truncate(stripdown(article.text), :length => 200, :separator => ' ', :omission => '') %>
             </div>
           </div>
+        </a>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="container">
+    <h1>About George</h1>
+  </div>
+  
+  <div class="aboutme">
+    <div class="row">
+      <div class="col-md-6">
+        <img class="img-responsive" src="<%= image_path('aboutme.jpg') %>">
+      </div>
+      <div class="col-md-6">
+        <div class="bio">
+          <p>
+            軟體工程師，台南人，在台北生活。<br/>
+            可使用中文、英文與台灣話溝通。<br/>
+            在半導體業工作過，所以有大型產線系統的經驗。<br/>
+            跟業務部門合作過，所以有自製CRM的經驗。<br/>
+            在新創公司任職過，所以有一個人搞定前後端網站與伺服器的經驗。<br/>
+            自願擔任Interviewer，所以有招募工程師的經驗。<br/>
+            擔任過技術主管，所以有跟一群很有想法的人共事的經驗。<br/>
+            <br/>
+            因為要記得的事情太多，所以把生活變得簡單，所以喜歡拍照紀錄生活。<br/><br/>
+            喜歡的<br/>
+            <span class="hashtag">#慢跑跟散步 #實體書店 #蘋果口味的飲料 #雞肉、蔬菜跟水果 #台灣茶 #咖啡 #Instagram #無印良品 #StarWarsMovie</span><br/>
+            討厭的<br/>
+            <span class="hashtag">#下雨天 #不懂得替別人著想的人 #麻煩別人 #遲到 #排隊 #浪費時間</span><br/><br/>
+            聊天的話題很廣，對事物都有自己的見解。<br/>
+            正在追求卓越、追求軟體工程本質的路上。<br/>
+          </p>
         </div>
       </div>
     </div>
   </div>
-
-</div>
+</section>

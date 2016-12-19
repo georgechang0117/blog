@@ -1,48 +1,28 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.main {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.post-link {
   
+  &:hover {
+    text-decoration: none;
+    .post .post-title {
+      color: #1E88E5;
+    }
+  }
   .post {
-    border-bottom: 1px solid #CCCCCC;
-    padding-bottom: 20px;
-    background: white;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     .post-title {
-      font-size: 36px;
-      a {
-        color: black;
-        font-weight: bold;
-      }
-      a:hover {
-        color: #c71f16;
-        text-decoration: none;
-      }
+      font-weight: bold;
+      color: #333;
     }
     .post-info {
-      color: #B3B3B3;
-    }
-  }
-}
-
-ul.social-network {
-  width: 5em;
-  margin-left: auto;
-  margin-right: auto;
-  list-style-type: none;
-  padding-left: 0;
-  font-size: 50px;
-  li {
-    display: inline;
-    a.social-icon {
-      color: black;
-      &:hover, &:focus, &:active {
-        color: #4183c4;
+      color: #9E9E9E;
+      p {
+        font-size: 16px;
       }
     }
+    .post-text {
+      color: #333;
+    }
   }
+  
 }
 
 .img-centerable {
@@ -62,3 +42,64 @@ p.blocktext {
   margin-bottom: 2em;
 }
 
+header.intro {
+  min-height: 100%;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-image: image-url("george.jpg");
+  position: relative;
+  width: 100%;
+  text-align: center;
+  .header-content {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    
+    .header-content-inner {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      h1 {
+        font-size: 50px;
+        span {
+          color: #2196F3;
+        }
+      }
+      p {
+        color: rgba(255,255,255,.87);
+
+      }
+    }
+  }
+  .header-content-bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    a {
+      font-size: 20px;
+      color: rgba(0, 0, 0, .7);
+      &:hover {
+        color: rgba(0, 0, 0, 1);
+      }
+    }
+  }
+}
+
+#recent, #about {
+  padding-top: 50px;
+  margin-bottom: 50px;
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
+.aboutme {
+  .bio {
+    background-color: white;
+  }
+}
+.hashtag {
+  color: #9f9f9f;
+}

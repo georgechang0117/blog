@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     #put 'users' => 'devise/registrations#update', :as => 'user_registration'
   #end
   root 'home#index'
-  get 'about' => 'home#about'
   get 'portfolio' => 'home#portfolio'
   get 'feed' => 'articles#feed', :format => 'rss'
   resources :articles

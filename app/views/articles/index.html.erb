@@ -1,23 +1,22 @@
 <div class="container">
-<h1>Listing articles</h1>
-<%= link_to 'New Article', new_article_path %>
-<table class="table">
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= getCustomStrftime(article.created_at) %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Posts</h1>
+      <% @articles.each do |article| %>
+        <a href="<%= article_path(article) %>" class="post-link">
+          <div class="post">
+            <h3 class="post-title">
+              <%= article.title %>
+            </h3>
+            <div class="post-info">
+              <p><%= getCustomStrftime(article.created_at) %></p>
+            </div>
+            <div class="post-text">
+              <%= truncate(stripdown(article.text), :length => 200, :separator => ' ', :omission => '') %>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  </div>
 </div>

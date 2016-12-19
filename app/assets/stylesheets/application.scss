@@ -13,9 +13,17 @@
  *= require_tree .
  *= require_self
  */
+$font-family-sans-serif: "Nunito Sans", "微軟雅黑","Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: 50px;
+}
 
 h1,h2,h3,h4,h5,h6 {
   line-height:1.6
@@ -41,18 +49,19 @@ ol {
 footer {
   height: 100px;
   padding-top: 20px;
+  font-size: 16px;
 }
-
+$navbar-brand-hover: #1976D2;
 .navbar-default {
   background-color: #ffffff;
   border-color: #cccccc;
 }
 .navbar-default .navbar-brand {
-  color: #c71f16;
+  color: #1E88E5;
   font-size: 30px;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-  color: #c71f16;
+  color: $navbar-brand-hover;
 }
 .navbar-default .navbar-text {
   color: #000000;
@@ -61,14 +70,14 @@ footer {
   color: #000000;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #c71f16;
+  color: $navbar-brand-hover;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  color: #c71f16;
+  color: $navbar-brand-hover;
   background-color: #ffffff;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  color: #c71f16;
+  color: $navbar-brand-hover;
   background-color: #ffffff;
 }
 .navbar-default .navbar-toggle {
@@ -127,4 +136,23 @@ figure {
 
 .highlight {
   font-size: 1.5em;
+}
+
+ul.social-network {
+  display: inline;
+  width: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 18px;
+  li {
+    display: inline;
+    a.social-icon {
+      color: black;
+      &:hover, &:focus, &:active {
+        color: #4183c4;
+      }
+    }
+  }
 }

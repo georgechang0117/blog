@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show, :feed]
-  before_action :check_permission, except: [:show, :feed]
+  before_action :authenticate_user!, except: [:index, :show, :feed]
+  before_action :check_permission, except: [:index, :show, :feed]
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order(created_at: :desc)
   end
 
   # GET /articles/1
@@ -65,6 +65,10 @@ class ArticlesController < ApplicationController
   end
 
   def feed
+    @articles = Article.all
+  end
+
+  def manage
     @articles = Article.all
   end
 
